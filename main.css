@@ -11501,6 +11501,10 @@ img {
 	height: 100%;
 }
 
+.block-secret {
+	position: relative;
+}
+
 .block-secret .block-secret-warning .wire-plug {
 	position: absolute;
 	display: flex;
@@ -11508,14 +11512,31 @@ img {
 	width: 95vw;
 	bottom: 39px;
 	left: calc(100% - 95vw);
-	z-index: -1;
+	z-index: 0;
 }
 
 .block-secret .block-secret-warning .wire {
-	border-top: 0.5px solid #b5b5b5;
-	border-bottom: 0.5px solid #b5b5b5;
 	width: 100%;
 	margin-right: -3px;
+	height: 2px;
+	background: #b5b5b5;
+	display: flex;
+}
+.block-secret .block-secret-warning .wire--brand {
+	background-color: #00a29a;
+}
+
+.loadingBar {
+	animation: loadingBar 1.5s ease forwards;
+}
+
+@keyframes loadingBar {
+	0% {
+		width: 0%;
+	}
+	100% {
+		width: 100%;
+	}
 }
 
 .block-secret .block-secret-check .container {
@@ -11540,6 +11561,11 @@ img {
 	bottom: 39px;
 	left: calc(100% - 95vw);
 	z-index: -1;
+}
+
+.condition-item {
+	transition: transform 0.8s;
+	transform-style: preserve-3d;
 }
 
 .block-secret .block-secret-check .wire {
@@ -11581,6 +11607,11 @@ img {
 	margin-top: auto;
 }
 
+.block-secret .examination,
+.block-secret .list {
+	z-index: 2;
+}
+
 .block-secret .begin,
 .block-secret .finished {
 	position: absolute;
@@ -11608,6 +11639,16 @@ img {
 .block-secret-warning,
 .block-secret-check {
 	overflow-x: hidden;
+	background: white;
+	transition: all ease 0.5s;
+}
+
+.block-secret-check {
+	position: absolute;
+	width: 100%;
+	top: 0;
+	padding: inherit;
+	z-index: -2;
 }
 
 .block-secret .condition {
@@ -11651,13 +11692,31 @@ img {
 
 .block-newLiving .content {
 	position: absolute;
-	/* line-height: 5.8px; */
 	top: 50%;
 	left: 70%;
 	transform: translate(-50%, -50%);
 	text-align: center;
 	white-space: nowrap;
 	color: #ffffff;
+	opacity: 0;
+}
+.block-newLiving .content p {
+	margin-bottom: 0;
+}
+
+.fadeIn {
+	animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+	0% {
+		top: 43%;
+		opacity: 0;
+	}
+	100% {
+		top: 50%;
+		opacity: 1;
+	}
 }
 
 .block-video {
@@ -11741,6 +11800,10 @@ img {
 	width: 0.625em;
 	height: 0.625em;
 	border-radius: 50%;
+}
+
+.pieChart-chart .dot + span {
+	margin: 0 0.6em 0 0.6em;
 }
 
 .pieChart-chart .list--gray,
@@ -11955,6 +12018,7 @@ img {
 	transform: translate(-50%, -50%);
 	white-space: nowrap;
 	color: #ffffff;
+	opacity: 0;
 }
 .block-intelligence .content p {
 	margin-bottom: 0;
@@ -12107,10 +12171,6 @@ img {
 		padding-top: 56.25vw;
 	}
 
-	.block-secret .examination {
-		order: 2;
-		width: auto;
-	}
 	.block-secret .block-secret-check .product,
 	.block-secret .block-secret-warning .product {
 		max-width: 220px;
@@ -12118,6 +12178,63 @@ img {
 	}
 	.block-secret .container {
 		padding-bottom: 2em;
+	}
+
+	.block-secret .condition {
+		flex-wrap: nowrap;
+		width: 80%;
+		margin: 6% auto 0;
+		transition: all ease 0.8s;
+		left: -100%;
+	}
+	.block-secret .condition {
+		padding-right: 8%;
+	}
+	.block-secret .condition {
+		width: 100%;
+	}
+
+	.block-secret .examination {
+		order: 2;
+		width: auto;
+		opacity: 0;
+		transition: opacity ease 0.5s;
+	}
+
+	.block-secret .list {
+		opacity: 0;
+		transition: opacity ease 0.5s;
+	}
+
+	.block-secret .block-secret-warning .wire-plug--active {
+		animation: plugShake 2s ease 1s infinite;
+		z-index: 1;
+	}
+
+	@keyframes plugShake {
+		0%,
+		16% {
+			transform: translate3d(0, 0, 0);
+		}
+
+		2%,
+		14% {
+			transform: translate3d(2px, 5px, 0);
+		}
+
+		4%,
+		8%,
+		12% {
+			transform: translate3d(-4px, -3px, 0);
+		}
+
+		6%,
+		10% {
+			transform: translate3d(4px, 3px, 0);
+		}
+		100% {
+			transform: translate3d(0, 0, 0);
+		}
 	}
 
 	.step-item1 {
@@ -12148,11 +12265,6 @@ img {
 	.block-newLiving {
 		background-image: url(assets/desktop/newLiving.png);
 	}
-	.block-secret .condition {
-		flex-wrap: nowrap;
-		width: 80%;
-		margin: 6% auto 0;
-	}
 
 	.block-recommendation .recommendation {
 		grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -12164,7 +12276,7 @@ img {
 
 	.block-warning .pieChart .list {
 		font-size: 1.25rem;
-		padding: 0 3rem;
+		padding: 0 1.5rem;
 	}
 
 	.block-warning .barChart-chart .chart {
@@ -12209,12 +12321,17 @@ img {
 
 	.block-newLiving .content {
 		position: absolute;
-		line-height: 0.9;
+
 		top: 50%;
 		left: 70%;
 		transform: translate(-50%, -50%);
 		text-align: left;
 		font-size: 2.5rem;
+	}
+
+	.block-newLiving .content,
+	.block-intelligence .content {
+		line-height: 1.2;
 	}
 
 	.block-intelligence .content {
@@ -12238,13 +12355,6 @@ img {
 		width: 240px;
 		top: 0%;
 		right: 0%;
-	}
-
-	.block-secret .condition {
-		padding-right: 8%;
-	}
-	.block-secret .condition {
-		width: 100%;
 	}
 
 	.block-secret .block-secret-warning .wire-plug,
