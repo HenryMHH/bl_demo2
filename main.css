@@ -11960,7 +11960,7 @@ img {
 	background: rgba(204, 0, 0, 0.2);
 }
 .light-orange {
-	background: rgba(255, 156, 0, 0.2);
+	background: rgba(255, 131, 0, 0.2);
 	margin: 0 3px;
 }
 .light-green {
@@ -11971,7 +11971,7 @@ img {
 	background: #cc0000;
 }
 .light-orange--active {
-	background: #ff9c00;
+	background: #ff8300;
 }
 .light-green--active {
 	background: #99c62e;
