@@ -11517,7 +11517,7 @@ img {
 .block-secret .block-secret-warning .wire {
 	width: 100%;
 	margin-right: -3px;
-	height: 3.5px;
+	height: 3px;
 	background: #b5b5b5;
 	display: flex;
 }
@@ -11567,10 +11567,10 @@ img {
 }
 
 .block-secret .block-secret-check .wire {
-	border-top: 0.5px solid #00a29a;
-	border-bottom: 0.5px solid #00a29a;
+	height: 3px;
 	width: 100%;
 	margin-right: -3px;
+	background: #00a29a;
 }
 
 .block-secret .block-secret-warning .product {
