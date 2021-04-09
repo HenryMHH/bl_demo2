@@ -11509,7 +11509,7 @@ img {
 	display: flex;
 	align-items: center;
 	width: 95vw;
-	bottom: 39px;
+	bottom: 42px;
 	left: calc(100% - 95vw);
 	z-index: 0;
 }
@@ -11561,7 +11561,7 @@ img {
 	display: flex;
 	align-items: center;
 	width: 95vw;
-	bottom: 39px;
+	bottom: 42px;
 	left: calc(100% - 95vw);
 	z-index: -1;
 }
